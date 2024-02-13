@@ -22,8 +22,17 @@ buttons.addEventListener('click', (event) =>
       }
     }else if (target.id == "+" || target.id == "-" || target.id == "*" || target.id == "/" ) 
     {
-      op = target.id;
-      afterOp = true;
+      if (afterOp == false) 
+      {
+        op = target.id;
+        afterOp = true;
+      }else
+      {
+        num1 = operate(Number(num1), Number(num2), op);
+        num2 = "";
+        op = target.id;
+      }
+      
     }else if (target.id == "=")
     {
       num1 = operate(Number(num1), Number(num2), op);
